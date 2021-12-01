@@ -1,0 +1,49 @@
+---
+title: "Advent of Code"
+author: "André Calero Valdez"
+date: "12/1/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+
+data_url <- here::here("data", "01.txt")
+data_input <- readLines(data_url) %>% as.numeric()
+
+inc_count <- 0
+dec_count <- 0
+
+for (i in 2:length(data_input)) {
+  a <- data_input[i-1]
+  b <- data_input[i] 
+  if(b > a) {
+    inc_count <- inc_count + 1
+  }
+}
+
+print(inc_count)
+```
+
+
+```{r}
+inc_count <- 0
+dec_count <- 0
+
+for (i in 4:length(data_input)) {
+  a <- data_input[i-1] + data_input[i-2] + data_input[i-3]
+  b <- data_input[i] + data_input[i-1] + data_input[i-2]
+  if(b > a) {
+    inc_count <- inc_count + 1
+  }
+}
+
+print(inc_count)
+
+
+```
+
